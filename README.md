@@ -75,6 +75,10 @@ The complete interactive run with all outputs, rich visual dataframes, and logs 
 
 ### 1. Chunk Size Strategy Benchmark: 100 vs. 400 Tokens
 
+<p align="center">
+  <img src="docs/images/chunk_size_tradeoff.svg" alt="Passage Chunk Size Strategy: 100 vs 400 tokens" width="100%"/>
+</p>
+
 We empirically evaluated dense retrieval over 10 canonical multi-company financial queries across two chunking granularities:
 
 | Chunk Granularity | Total Corpus Chunks | Hit Rate @ 1 | Hit Rate @ 3 | Tokens Sent per Query ($k=3$) | Context Utilization (2,048 Window) |
@@ -85,6 +89,10 @@ We empirically evaluated dense retrieval over 10 canonical multi-company financi
 *Architectural Rationale:* Financial disclosures in SEC 10-K/10-Q filings are semantically interdependent. Slicing at 100 tokens severely fragments accounting tables and disconnects legal balance sheet disclosures from footnote caveats. The **400-token chunk configuration** with 50-token sliding overlap preserves complete financial clauses while consuming 58.6% of context capacity, leaving ample headroom (848 tokens) for instructions and answer generation.
 
 ### 2. Multi-Modal Retrieval Benchmark
+
+<p align="center">
+  <img src="docs/images/retrieval_benchmark.svg" alt="Multi-Modal Retrieval Benchmark: Hit Rate vs Latency" width="100%"/>
+</p>
 
 Benchmarking Dense (FAISS), Lexical (BM25 Okapi), and Hybrid (RRF $k=60$) retrieval over the 400-token corpus on the NVIDIA A100:
 
@@ -114,6 +122,10 @@ To prevent degenerative repetition and hallucinations observed in smaller 1.1B m
 
 ### 5. Automated LLM-as-a-Judge Audit (`Llama-3.1-8B-Instruct`)
 
+<p align="center">
+  <img src="docs/images/llm_judge_audit.svg" alt="Dual-Criterion LLM-as-a-Judge Audit Breakdown" width="100%"/>
+</p>
+
 Using Meta's `Llama-3.1-8B-Instruct` at greedy decoding (`temperature = 0.0`) as an independent cross-family judge:
 
 | Evaluation Check | Audit Count (out of 10) | Percentage | Significance |
@@ -124,6 +136,10 @@ Using Meta's `Llama-3.1-8B-Instruct` at greedy decoding (`temperature = 0.0`) as
 | **Supported by Retrieved Chunks** | **9 / 10** | **90.0%** | **Zero hallucination: 90% of answers strictly grounded in context** |
 
 ### 6. Failure Analysis & Architectural Fix: Entity-Aware Metadata Pre-Filtering
+
+<p align="center">
+  <img src="docs/images/failure_analysis_fix.svg" alt="Architectural Fix: Entity-Aware Metadata Pre-Filtering" width="100%"/>
+</p>
 
 * **Failure Diagnosis (Query 10):** When querying *"Provide a summary of cybersecurity as reported by Alphabet"*, unconstrained hybrid retrieval ranked NVIDIA cybersecurity disclosures at Rank #1, pushing Alphabet disclosures out of the Top-3 context and triggering a negative refusal.
 * **Architectural Fix:** Implemented **Entity-Aware Metadata Pre-Filtering**, isolating candidate search spaces to the relevant company filing before rank fusion.

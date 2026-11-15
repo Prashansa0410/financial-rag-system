@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 420" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="denseGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#60a5fa" />
+    </linearGradient>
+    <linearGradient id="bm25Grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+    <linearGradient id="hybridGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#a78bfa" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background Card -->
+  <rect width="850" height="420" rx="16" fill="url(#bgGrad)" filter="url(#shadow)" />
+  <rect x="1" y="1" width="848" height="418" rx="15" fill="none" stroke="#334155" stroke-width="1.5" />
+
+  <!-- Header -->
+  <text x="40" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">Multi-Modal Retrieval Benchmark: Hit Rate vs. Latency</text>
+  <text x="40" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#94a3b8">Empirically measured across 10 canonical SEC queries on NVIDIA A100-SXM4-80GB (BITS Lab)</text>
+
+  <!-- Grid Lines -->
+  <line x1="210" y1="110" x2="780" y2="110" stroke="#334155" stroke-dasharray="4,4" />
+  <line x1="210" y1="180" x2="780" y2="180" stroke="#334155" stroke-dasharray="4,4" />
+  <line x1="210" y1="250" x2="780" y2="250" stroke="#334155" stroke-dasharray="4,4" />
+  <line x1="210" y1="320" x2="780" y2="320" stroke="#334155" stroke-dasharray="4,4" />
+
+  <!-- X-Axis Labels (Percentages) -->
+  <text x="210" y="345" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">0%</text>
+  <text x="352" y="345" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">25%</text>
+  <text x="495" y="345" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">50%</text>
+  <text x="637" y="345" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">75%</text>
+  <text x="780" y="345" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">100%</text>
+
+  <!-- Row 1: Dense Search -->
+  <text x="40" y="142" font-family="sans-serif" font-size="14" font-weight="600" fill="#e2e8f0">Dense (BGE-Small)</text>
+  <text x="40" y="160" font-family="sans-serif" font-size="12" fill="#60a5fa">Latency: 8.07 ms</text>
+  <!-- Hit@3 Bar: 40% -> width = 570 * 0.40 = 228 -->
+  <rect x="210" y="125" width="228" height="18" rx="6" fill="#1e3a8a" />
+  <!-- Hit@1 Bar: 20% -> width = 570 * 0.20 = 114 -->
+  <rect x="210" y="125" width="114" height="18" rx="6" fill="url(#denseGrad)" />
+  <text x="215" y="139" font-family="sans-serif" font-size="11" font-weight="700" fill="#ffffff">20%</text>
+  <text x="445" y="139" font-family="sans-serif" font-size="11" font-weight="600" fill="#93c5fd">40% Hit@3</text>
+
+  <!-- Row 2: BM25 Okapi -->
+  <text x="40" y="212" font-family="sans-serif" font-size="14" font-weight="600" fill="#e2e8f0">BM25 Okapi (Lexical)</text>
+  <text x="40" y="230" font-family="sans-serif" font-size="12" fill="#34d399">Latency: 1.60 ms</text>
+  <!-- Hit@3 Bar: 50% -> width = 570 * 0.50 = 285 -->
+  <rect x="210" y="195" width="285" height="18" rx="6" fill="#064e3b" />
+  <!-- Hit@1 Bar: 30% -> width = 570 * 0.30 = 171 -->
+  <rect x="210" y="195" width="171" height="18" rx="6" fill="url(#bm25Grad)" />
+  <text x="215" y="209" font-family="sans-serif" font-size="11" font-weight="700" fill="#ffffff">30%</text>
+  <text x="502" y="209" font-family="sans-serif" font-size="11" font-weight="600" fill="#6ee7b7">50% Hit@3</text>
+
+  <!-- Row 3: Hybrid RRF (WINNER) -->
+  <text x="40" y="282" font-family="sans-serif" font-size="14" font-weight="700" fill="#f8fafc">Hybrid Search (RRF)</text>
+  <text x="40" y="300" font-family="sans-serif" font-size="12" font-weight="600" fill="#c084fc">Latency: 10.10 ms (Best)</text>
+  <!-- Hit@3 Bar: 50% -> width = 570 * 0.50 = 285 -->
+  <rect x="210" y="265" width="285" height="18" rx="6" fill="#3b0764" />
+  <!-- Hit@1 Bar: 40% -> width = 570 * 0.40 = 228 -->
+  <rect x="210" y="265" width="228" height="18" rx="6" fill="url(#hybridGrad)" />
+  <text x="215" y="279" font-family="sans-serif" font-size="11" font-weight="700" fill="#ffffff">40% Hit@1 (Top Precision)</text>
+  <text x="502" y="279" font-family="sans-serif" font-size="11" font-weight="600" fill="#d8b4fe">50% Hit@3</text>
+
+  <!-- Legend -->
+  <g transform="translate(230, 375)">
+    <rect x="0" y="0" width="16" height="12" rx="3" fill="#8b5cf6" />
+    <text x="24" y="10" font-family="sans-serif" font-size="12" fill="#cbd5e1">Hit Rate @ 1 (Exact Top-1 Match)</text>
+    <rect x="270" y="0" width="16" height="12" rx="3" fill="#3b0764" />
+    <text x="294" y="10" font-family="sans-serif" font-size="12" fill="#cbd5e1">Hit Rate @ 3 (Top-3 Inclusions)</text>
+  </g>
+</svg>

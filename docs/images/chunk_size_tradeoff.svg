@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#f87171" />
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Card -->
+  <rect width="850" height="400" rx="16" fill="url(#bgGrad2)" />
+  <rect x="1" y="1" width="848" height="398" rx="15" fill="none" stroke="#334155" stroke-width="1.5" />
+
+  <!-- Header -->
+  <text x="40" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">Passage Chunk Size Strategy: 100 vs. 400 Tokens</text>
+  <text x="40" y="70" font-family="sans-serif" font-size="13" fill="#94a3b8">Empirical trade-offs across financial disclosure semantic completeness and context window budgets</text>
+
+  <!-- Card 1: 100 Tokens (Left) -->
+  <g transform="translate(40, 95)">
+    <rect width="360" height="260" rx="12" fill="#1e293b" stroke="#475569" stroke-width="1" />
+    <rect x="16" y="16" width="130" height="26" rx="6" fill="#7f1d1d" />
+    <text x="81" y="34" font-family="sans-serif" font-size="12" font-weight="700" fill="#fca5a5" text-anchor="middle">100 Tokens (Fine)</text>
+
+    <!-- Metrics -->
+    <text x="20" y="75" font-family="sans-serif" font-size="13" fill="#94a3b8">Total Corpus Chunks</text>
+    <text x="340" y="75" font-family="sans-serif" font-size="14" font-weight="700" fill="#f8fafc" text-anchor="end">4,023 chunks</text>
+
+    <text x="20" y="110" font-family="sans-serif" font-size="13" fill="#94a3b8">Hit Rate @ 3</text>
+    <text x="340" y="110" font-family="sans-serif" font-size="16" font-weight="800" fill="#ef4444" text-anchor="end">0.0% (0/10)</text>
+
+    <text x="20" y="145" font-family="sans-serif" font-size="13" fill="#94a3b8">Tokens Sent per Query (k=3)</text>
+    <text x="340" y="145" font-family="sans-serif" font-size="14" font-weight="700" fill="#f8fafc" text-anchor="end">300 tokens</text>
+
+    <text x="20" y="180" font-family="sans-serif" font-size="13" fill="#94a3b8">Context Utilization (2k window)</text>
+    <text x="340" y="180" font-family="sans-serif" font-size="14" font-weight="700" fill="#f8fafc" text-anchor="end">14.6%</text>
+
+    <!-- Assessment -->
+    <rect x="16" y="205" width="328" height="40" rx="8" fill="#450a0a" stroke="#991b1b" stroke-width="1" />
+    <text x="180" y="229" font-family="sans-serif" font-size="11" font-weight="600" fill="#fecaca" text-anchor="middle">❌ Severe semantic fragmentation across balance sheet rows</text>
+  </g>
+
+  <!-- Card 2: 400 Tokens (Right) - WINNER -->
+  <g transform="translate(450, 95)">
+    <rect width="360" height="260" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2" />
+    <rect x="16" y="16" width="160" height="26" rx="6" fill="#064e3b" />
+    <text x="96" y="34" font-family="sans-serif" font-size="12" font-weight="700" fill="#6ee7b7" text-anchor="middle">400 Tokens (Selected)</text>
+
+    <!-- Metrics -->
+    <text x="20" y="75" font-family="sans-serif" font-size="13" fill="#94a3b8">Total Corpus Chunks</text>
+    <text x="340" y="75" font-family="sans-serif" font-size="14" font-weight="700" fill="#f8fafc" text-anchor="end">1,008 chunks</text>
+
+    <text x="20" y="110" font-family="sans-serif" font-size="13" fill="#94a3b8">Hit Rate @ 3</text>
+    <text x="340" y="110" font-family="sans-serif" font-size="16" font-weight="800" fill="#10b981" text-anchor="end">40.0% (4/10)</text>
+
+    <text x="20" y="145" font-family="sans-serif" font-size="13" fill="#94a3b8">Tokens Sent per Query (k=3)</text>
+    <text x="340" y="145" font-family="sans-serif" font-size="14" font-weight="700" fill="#f8fafc" text-anchor="end">1,200 tokens</text>
+
+    <text x="20" y="180" font-family="sans-serif" font-size="13" fill="#94a3b8">Context Utilization (2k window)</text>
+    <text x="340" y="180" font-family="sans-serif" font-size="14" font-weight="700" fill="#f8fafc" text-anchor="end">58.6% (Optimal)</text>
+
+    <!-- Assessment -->
+    <rect x="16" y="205" width="328" height="40" rx="8" fill="#022c22" stroke="#065f46" stroke-width="1" />
+    <text x="180" y="229" font-family="sans-serif" font-size="11" font-weight="600" fill="#a7f3d0" text-anchor="middle">✓ Preserves complete qualitative footnotes and disclosures</text>
+  </g>
+</svg>

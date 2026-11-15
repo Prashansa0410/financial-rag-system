@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+  </defs>
+
+  <rect width="850" height="380" rx="16" fill="url(#bgGrad3)" />
+  <rect x="1" y="1" width="848" height="378" rx="15" fill="none" stroke="#334155" stroke-width="1.5" />
+
+  <!-- Header -->
+  <text x="40" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">Dual-Criterion LLM-as-a-Judge Audit (Llama-3.1-8B-Instruct)</text>
+  <text x="40" y="70" font-family="sans-serif" font-size="13" fill="#94a3b8">Independent cross-family evaluation of Qwen2.5-7B generated answers across 10 SEC test cases</text>
+
+  <!-- Left Dimension: Passage Faithfulness (Support) -->
+  <g transform="translate(40, 95)">
+    <rect width="360" height="240" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1" />
+    <text x="20" y="32" font-family="sans-serif" font-size="15" font-weight="700" fill="#38bdf8">1. Grounded Faithfulness</text>
+    <text x="20" y="52" font-family="sans-serif" font-size="12" fill="#94a3b8">Is every claim supported by retrieved chunks?</text>
+
+    <!-- Donut / Stat Display -->
+    <circle cx="90" cy="145" r="55" fill="none" stroke="#334155" stroke-width="14" />
+    <circle cx="90" cy="145" r="55" fill="none" stroke="#0ea5e9" stroke-width="14" stroke-dasharray="311 345" stroke-linecap="round" transform="rotate(-90 90 145)" />
+    <text x="90" y="152" font-family="sans-serif" font-size="24" font-weight="800" fill="#f8fafc" text-anchor="middle">90%</text>
+
+    <g transform="translate(170, 115)">
+      <rect x="0" y="0" width="12" height="12" rx="3" fill="#0ea5e9" />
+      <text x="20" y="11" font-family="sans-serif" font-size="13" font-weight="600" fill="#f8fafc">Supported (9/10)</text>
+      <text x="20" y="28" font-family="sans-serif" font-size="11" fill="#94a3b8">Zero hallucination</text>
+
+      <rect x="0" y="50" width="12" height="12" rx="3" fill="#64748b" />
+      <text x="20" y="61" font-family="sans-serif" font-size="13" font-weight="600" fill="#cbd5e1">Unsupported (1/10)</text>
+      <text x="20" y="78" font-family="sans-serif" font-size="11" fill="#94a3b8">Nuanced entity gap</text>
+    </g>
+  </g>
+
+  <!-- Right Dimension: Factual Correctness -->
+  <g transform="translate(450, 95)">
+    <rect width="360" height="240" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1" />
+    <text x="20" y="32" font-family="sans-serif" font-size="15" font-weight="700" fill="#a855f7">2. Factual Correctness</text>
+    <text x="20" y="52" font-family="sans-serif" font-size="12" fill="#94a3b8">Compared against verified ground-truth answer spans</text>
+
+    <!-- Bar 1: Correct -->
+    <text x="20" y="90" font-family="sans-serif" font-size="12" font-weight="600" fill="#e2e8f0">Correct (30%)</text>
+    <rect x="150" y="78" width="190" height="16" rx="4" fill="#334155" />
+    <rect x="150" y="78" width="57" height="16" rx="4" fill="#10b981" />
+    <text x="215" y="91" font-family="sans-serif" font-size="11" font-weight="700" fill="#34d399">3 / 10</text>
+
+    <!-- Bar 2: Partly Correct -->
+    <text x="20" y="130" font-family="sans-serif" font-size="12" font-weight="600" fill="#e2e8f0">Partly Correct (20%)</text>
+    <rect x="150" y="118" width="190" height="16" rx="4" fill="#334155" />
+    <rect x="150" y="118" width="38" height="16" rx="4" fill="#f59e0b" />
+    <text x="195" y="131" font-family="sans-serif" font-size="11" font-weight="700" fill="#fbbf24">2 / 10</text>
+
+    <!-- Bar 3: Negative Refusals -->
+    <text x="20" y="170" font-family="sans-serif" font-size="12" font-weight="600" fill="#e2e8f0">Faithful Refusals (50%)</text>
+    <rect x="150" y="158" width="190" height="16" rx="4" fill="#334155" />
+    <rect x="150" y="158" width="95" height="16" rx="4" fill="#6366f1" />
+    <text x="252" y="171" font-family="sans-serif" font-size="11" font-weight="700" fill="#818cf8">5 / 10</text>
+
+    <text x="20" y="215" font-family="sans-serif" font-size="11" fill="#94a3b8">*50% 'Wrong' represents intentional negative refusals when retrieval omitted the context, preventing hallucinations.</text>
+  </g>
+</svg>
