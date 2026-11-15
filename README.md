@@ -246,6 +246,27 @@ python main.py serve --host 0.0.0.0 --port 8000
 
 ---
 
+## Zero-GPU Serverless Cloud Deployment (100% Free)
+
+To deploy this API publicly **without managing or paying for private GPU servers**, FinDoc-RAG features an intelligent multi-backend generator:
+1. **Retrieval & Reranking (FAISS + BM25 + Cross-Encoder MiniLM):** Runs in **<30 ms on free CPU tiers** (requires only ~250MB RAM).
+2. **LLM Generation (`Llama-3.1-8B` / `Qwen-2.5`):** Routes to **Groq Cloud's free LPUs** (500+ tokens/sec) at **$0 cost** with zero credit card required.
+
+### 1-Minute Deployment on Hugging Face Spaces / Railway / Render:
+
+1. **Get a Free API Key:** Sign up at [console.groq.com](https://console.groq.com) and create an API key (takes 30 seconds).
+2. **Deploy Container:**
+   * **Hugging Face Spaces:** Create a new Docker Space, link your GitHub repo, and add `GROQ_API_KEY` under **Settings → Variables and Secrets**.
+   * **Railway / Render:** Connect your GitHub repo and add `GROQ_API_KEY=gsk_...` under Environment Variables.
+3. **Local Testing with Cloud LLM:**
+   ```bash
+   export GROQ_API_KEY="gsk_your_api_key_here"
+   python main.py generate "What does Apple disclose regarding risk factors?"
+   # Uses Groq LPU (llama-3.1-8b-instant) for grounded generation in ~300 ms!
+   ```
+
+---
+
 ## Docker Deployment
 
 ### 1. Using Docker Compose (Recommended)

@@ -76,6 +76,12 @@ class Settings:
     api_host: str = "0.0.0.0"
     api_port: int = 8000
 
+    # Serverless Cloud LLM Providers (for free GPU-less hosting)
+    groq_api_key: Optional[str] = field(default_factory=lambda: os.getenv("GROQ_API_KEY"))
+    groq_model: str = field(default_factory=lambda: os.getenv("GROQ_MODEL", "llama-3.1-8b-instant"))
+    openai_api_key: Optional[str] = field(default_factory=lambda: os.getenv("OPENAI_API_KEY"))
+    openai_model: str = field(default_factory=lambda: os.getenv("OPENAI_MODEL", "gpt-4o-mini"))
+
     def __post_init__(self):
         self.corpus_dir = self.project_root / "data" / "corpus"
         self.chunks_dir = self.project_root / "data" / "chunks"

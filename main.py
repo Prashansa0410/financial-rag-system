@@ -98,11 +98,12 @@ def run_generate(query: str, top_k: int = 3, filter_entity: bool = True):
     reranker = CrossEncoderReranker(settings.reranker_model_name, device=settings.device)
     retrieved = reranker.rerank(query, candidates, top_k=top_k)
 
+    has_cloud_key = bool(settings.groq_api_key or settings.openai_api_key)
     generator = RAGGenerator(
         settings.generator_model_name,
         device=settings.device,
         torch_dtype=settings.torch_dtype,
-        use_fallback=(settings.device == "cpu")
+        use_fallback=(settings.device == "cpu" and not has_cloud_key)
     )
     result = generator.generate(query, retrieved)
 

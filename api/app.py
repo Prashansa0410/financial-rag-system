@@ -100,12 +100,13 @@ async def lifespan(app: FastAPI):
         device=settings.device
     )
 
-    # Initialize Generator (using fallback if GPU is not available to keep API lightweight)
+    # Initialize Generator (supports Groq/OpenAI cloud APIs, local GPU, or fast fallback)
+    has_cloud_key = bool(settings.groq_api_key or settings.openai_api_key)
     generator = RAGGenerator(
         model_name=settings.generator_model_name,
         device=settings.device,
         torch_dtype=settings.torch_dtype,
-        use_fallback=(settings.device == "cpu")
+        use_fallback=(settings.device == "cpu" and not has_cloud_key)
     )
 
     engine["dense"] = dense_retriever
