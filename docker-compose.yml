@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  findoc-rag-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: findoc-rag:latest
+    container_name: findoc-rag-api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - HOST=0.0.0.0
+      - TOKENIZERS_PARALLELISM=false
+      - HF_HUB_DISABLE_SYMLINKS_WARNING=1
+    volumes:
+      - ./data:/app/data:ro
+      - ./outputs:/app/outputs
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 20s
+      timeout: 10s
+      retries: 3
+      start_period: 30s

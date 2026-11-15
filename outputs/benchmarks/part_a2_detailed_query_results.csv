@@ -1,0 +1,21 @@
+Chunk Size,Query ID,Query,Document,Top-1 Chunk ID,Top-1 Score,Hit@1,Hit@3
+100 tokens,Q1,Which details are provided concerning offset by fo...,amazon_fy2022_10k.txt,amazon_fy2022_10k_c100_12,0.7214,False,False
+100 tokens,Q2,Detail the impact of adverse effect on Alphabet....,alphabet_q1_2026_10q.txt,apple_fy2023_10k_c100_158,0.7334,False,False
+100 tokens,Q3,What are the primary considerations for Microsoft ...,microsoft_fy2023_10k.txt,microsoft_fy2023_10k_c100_199,0.7188,False,False
+100 tokens,Q4,What does the filing disclose about amortization f...,amazon_fy2022_10k.txt,amazon_fy2022_10k_c100_12,0.7669,False,False
+100 tokens,Q5,What are the primary considerations for Amazon reg...,amazon_fy2022_10k.txt,amazon_fy2022_10k_c100_568,0.7328,False,False
+100 tokens,Q6,What does the filing disclose about risk factor fo...,apple_fy2023_10k.txt,apple_fy2023_10k_c100_194,0.7956,False,False
+100 tokens,Q7,How does Apple describe its fair value?...,apple_fy2023_10k.txt,nvidia_fy2024_annual_report_c100_1358,0.7221,False,False
+100 tokens,Q8,Outline Alphabet's position on capital return....,alphabet_q1_2026_10q.txt,alphabet_q1_2026_10q_c100_27,0.7485,False,False
+100 tokens,Q9,Which details are provided concerning risk factor ...,apple_fy2023_10k.txt,apple_fy2023_10k_c100_164,0.7575,False,False
+100 tokens,Q10,Provide a summary of cybersecurity as reported by ...,alphabet_q1_2026_10q.txt,alphabet_q1_2026_10q_c100_18,0.7033,False,False
+400 tokens,Q1,Which details are provided concerning offset by fo...,amazon_fy2022_10k.txt,amazon_fy2022_10k_c400_94,0.7242,False,False
+400 tokens,Q2,Detail the impact of adverse effect on Alphabet....,alphabet_q1_2026_10q.txt,microsoft_fy2023_10k_c400_71,0.7189,False,False
+400 tokens,Q3,What are the primary considerations for Microsoft ...,microsoft_fy2023_10k.txt,microsoft_fy2023_10k_c400_190,0.7206,False,False
+400 tokens,Q4,What does the filing disclose about amortization f...,amazon_fy2022_10k.txt,amazon_fy2022_10k_c400_3,0.7795,False,False
+400 tokens,Q5,What are the primary considerations for Amazon reg...,amazon_fy2022_10k.txt,amazon_fy2022_10k_c400_94,0.7362,False,False
+400 tokens,Q6,What does the filing disclose about risk factor fo...,apple_fy2023_10k.txt,apple_fy2023_10k_c400_13,0.8474,True,True
+400 tokens,Q7,How does Apple describe its fair value?...,apple_fy2023_10k.txt,apple_fy2023_10k_c400_78,0.7323,False,False
+400 tokens,Q8,Outline Alphabet's position on capital return....,alphabet_q1_2026_10q.txt,alphabet_q1_2026_10q_c400_95,0.7472,False,True
+400 tokens,Q9,Which details are provided concerning risk factor ...,apple_fy2023_10k.txt,apple_fy2023_10k_c400_13,0.8147,True,True
+400 tokens,Q10,Provide a summary of cybersecurity as reported by ...,alphabet_q1_2026_10q.txt,alphabet_q1_2026_10q_c400_4,0.6919,False,True

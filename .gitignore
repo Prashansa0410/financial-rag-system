@@ -1,0 +1,32 @@
+# Operating System
+.DS_Store
+Thumbs.db
+
+# Python & Caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Virtual Environments
+venv/
+env/
+.venv/
+.env/
+
+# Large Model Caches & Temp Downloads
+.cache/
+*.zip
+*.tar.gz
+
+# Assignment Artifacts & Backups (Preserved locally, excluded from public repo)
+.assignment_backup/

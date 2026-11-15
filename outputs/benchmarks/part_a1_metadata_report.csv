@@ -1,0 +1,8 @@
+Metric / Attribute,Reported Value
+Embedding Model Name,BAAI/bge-small-en-v1.5
+Vector Size (Dimension),384
+Similarity Measure,Inner Product (IndexFlatIP with L2-normalized vectors = Cosine Similarity)
+Batch Size,64
+Embedding Model Max Tokens,512 tokens
+Final Chunk Set Size,"1,008 chunks (400 tokens each)"
+Index Build Time (seconds),55.19 seconds

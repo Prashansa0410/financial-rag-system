@@ -1,0 +1,11 @@
+Query ID,Question,Generated Answer,Cited Chunks
+Q1,Which details are provided concerning offset by for Amazon?,Not found in the documents,None
+Q2,Detail the impact of adverse effect on Alphabet.,Not found in the documents,None
+Q3,What are the primary considerations for Microsoft regarding accounts receivable?,The allowance for doubtful accounts reflects our best estimate of probable losses inherent in the accounts receivable balance. [1],[1]
+Q4,What does the filing disclose about amortization for Amazon?,Not found in the documents,None
+Q5,What are the primary considerations for Amazon regarding assets?,Not found in the documents,None
+Q6,What does the filing disclose about risk factor for Apple?,Not found in the documents,None
+Q7,How does Apple describe its fair value?,"Changes in the Company’s underlying foreign currency exposures, which were excluded from the assessment, generally offset changes in the fair values of the Company’s foreign currency derivatives. [1]",[1]
+Q8,Outline Alphabet's position on capital return.,Not found in the documents,None
+Q9,Which details are provided concerning risk factor for Apple?,"Risk Factors The Company’s business, reputation, results of operations, financial condition and stock price can be affected by a number of factors, whether currently known or unknown, including those described below. [1]",[1]
+Q10,Provide a summary of cybersecurity as reported by Alphabet.,Not found in the documents,None
